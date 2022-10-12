@@ -1,11 +1,13 @@
+#!/bin/bash
+
 # Mudar para root
 su root
 
 
 # Download das bibliotecas necessárias
-apt upgrade -y
-apt install apache2 -y
-apt install unzip - y
+apt-get upgrade -y
+apt-get install apache2 -y
+apt-get install unzip - y
 
 # Veficar se o apache roda de forma correta
 # systemclt apache2
@@ -18,6 +20,11 @@ rm index.html
 
 # Baixar pelo link o arquivo do repositorio do GITHUB
 wget https://github.com/denilsonbonatti/linux-site-dio/archive/refs/heads/main.zip
-unzip main
+unzip main.zip
+cd linux-site-dio
+cp -R* /var/www/html
+cd -
+rm main.zip
+rm -r linux-site-dio
 
 # Verificar o resultado no servidor da rede.
